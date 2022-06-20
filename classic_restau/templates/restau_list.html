@@ -1,0 +1,22 @@
+<!--templates/restau_list.html-->
+{% extends 'base.html' %}
+{% block content %}
+<h1>Welcome to our Classic Django App!</h1>
+<h2>List of Restaurants in Dakar </h2>
+
+{% for restau in object_list %}
+<div class="card" id="main-card">
+    <div class="card-header">
+        <span class="font-weight-bold">{{ restau.restau_name }}</span> &middot;
+        <span class="text-muted">{{ restau.street }} | {{ restau.city }}</span>
+    </div>
+    <div class="card-body">
+    {{ restau.description }}
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="{% url 'restau_detail' restau.id %}">Details</a>
+    </div>
+</div>
+<br/>
+{% endfor %}
+{% endblock %}

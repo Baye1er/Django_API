@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <span class="font-weight-bold">{{ object.restau_name }}</span> &middot;
+        <span class="text-muted">{{ object.street }} | {{ object.city }}</span>
+    </div>
+    <div class="card-body">
+        <p>{{ object.zip_code }}</p>
+         <p>{{ object.website }}</p>
+         <p>{{ object.phone_number }}</p>
+         <p>{{ object.description }}</p>
+         <p>{{ object.email }}</p>
+    </div>
+    <div class="card-footer text-center text-muted">
+        <p>
+            <a href="{% url 'restau_update' object.pk %}">Edit</a> |
+            <a href="{% url 'restau_delete' object.id %}">Delete</a>
+        </p>
+        <p>
+            Back to <a href="{% url 'restau_list' %}">All Restaurants</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
